@@ -15,9 +15,50 @@ import {
 } from "../../componets/Buttons/Buttons";
 import ModalComponent from "../../componets/Modal/Modal";
 import { toast } from "react-hot-toast";
+import TableComponent from "../../componets/Tables/Tables";
 
+// toast
 const notifySucces = () => toast.success("Here is your toast.");
 const notifyError = () => toast.error("Here is your toast.");
+
+// table
+const columns = [
+  {
+    Header: "Name",
+    accessor: "name",
+  },
+  {
+    Header: "Last Name",
+    accessor: "lastName",
+  },
+  {
+    Header: "Age",
+    accessor: "age",
+  },
+];
+
+const data = [
+  {
+    name: "Juan",
+    lastName: "Perez",
+    age: 20,
+  },
+  {
+    name: "Pedro",
+    lastName: "Perez",
+    age: 20,
+  },
+  {
+    name: "Maria",
+    lastName: "Perez",
+    age: 20,
+  },
+  {
+    name: "Jose",
+    lastName: "Perez",
+    age: 20,
+  },
+];
 
 const Example = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -80,6 +121,11 @@ const Example = () => {
           <ButtonSecundary onClick={notifySucces} text={"Succes"} />
           <ButtonSecundary onClick={notifyError} text={"Error"} />
         </Flex>
+
+        <Text fontWeight={600} fontSize={{ base: "2xl" }} lineHeight={"110%"}>
+          TABLE
+        </Text>
+        <TableComponent columns={columns} data={data} />
       </Stack>
     </Container>
   );
