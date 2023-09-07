@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import {
   Box,
   Button,
@@ -8,7 +9,6 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
 import {
   ButtonPrimary,
   ButtonSecundary,
@@ -16,10 +16,13 @@ import {
 import ModalComponent from "../../componets/Modal/Modal";
 import { toast } from "react-hot-toast";
 import TableComponent from "../../componets/Tables/Tables";
+import axiosInstance from "../../axios/axios";
 
 // toast
 const notifySucces = () => toast.success("Here is your toast.");
 const notifyError = () => toast.error("Here is your toast.");
+
+// axios
 
 // table
 const columns = [
@@ -60,8 +63,20 @@ const data = [
   },
 ];
 
+const getTableData = () => {
+  axiosInstance.get("hello").then((res) => {
+    console.log(res);
+  });
+};
+
 const Example = () => {
+
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  useEffect(() => {
+    getTableData();
+  }, []);
+
   return (
     <Container
       maxW={"full"}
