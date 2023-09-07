@@ -64,7 +64,7 @@ const Example = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Container
-      maxW={"5xl"}
+      maxW={"full"}
       bgColor={"white"}
       borderRadius="20px"
       boxShadow="2xl"
