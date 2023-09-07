@@ -74,7 +74,7 @@ const Example = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
-    getTableData();
+    getTableData(); 
   }, []);
 
   return (
@@ -95,7 +95,7 @@ const Example = () => {
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
           lineHeight={"110%"}
         >
-          Titulo
+          Titulo prueba
         </Heading>
         <Text color={"gray.500"} maxW={"3xl"}>
           Contendio
